@@ -1,10 +1,12 @@
 # from sys import argv
 
-print "enter the name of the file"
-filename = raw_input()
-txt = open(filename)
-text = txt.read().replace(',', ' ').replace('.', ' ').replace('!', ' ')
-words = text.split()
+filename = raw_input('filename: ')
+file = open(filename)
+contents = file.read()
+file.close()
+
+contents = contents.replace('.', ' ')
+words = contents.split()
 
 tally = {}
 for word in words:
@@ -12,5 +14,4 @@ for word in words:
         count = count + 1
         tally[word] = count
 
-for word, count in tally.item():
-    print word, ':', count
+print tally
